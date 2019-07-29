@@ -22,9 +22,6 @@ public class URLify {
 
         //printing
         for (char c : str) {
-            if (c == ' ') {
-                System.out.print("9");
-            }
             System.out.print(c);
         }
     }

@@ -32,7 +32,7 @@ public class StringRotation {
     }
 
 
-    //by normal comparision
+    //by string duplication
     private static boolean findStringRotationWithConcatingString(String str, String rstr) {
         rstr = rstr + rstr;
         return rstr.contains(str);
