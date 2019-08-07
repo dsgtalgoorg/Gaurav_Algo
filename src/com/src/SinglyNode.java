@@ -6,6 +6,10 @@ public class SinglyNode {
     public SinglyNode() {
     }
 
+    public SinglyNode(Integer value) {
+        this.value = value;
+    }
+
     public SinglyNode(SinglyNode next, Integer value) {
         this.next = next;
         this.value = value;
