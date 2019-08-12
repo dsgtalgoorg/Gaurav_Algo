@@ -45,7 +45,7 @@ public class ListOfDepths4_2 {
     @Test
     public void emptyTree() {
         Integer[] arr = { null };
-        TreeNode root = buildBinaryTree(arr);
+        TreeNode root = TreeUtility.buildBinaryTree(arr);
 
         List<List<TreeNode>> result = listOfNodesAtEachDepth(root);
         List<List<TreeNode>> expected = new LinkedList<>();
@@ -58,7 +58,7 @@ public class ListOfDepths4_2 {
     @Test
     public void singleton() {
         Integer[] arr = { null, 1 };
-        TreeNode root = buildBinaryTree(arr);
+        TreeNode root = TreeUtility.buildBinaryTree(arr);
 
         List<List<TreeNode>> result = listOfNodesAtEachDepth(root);
         List<List<TreeNode>> expected = new LinkedList<>();
@@ -85,7 +85,7 @@ public class ListOfDepths4_2 {
          */
 
         Integer[] arr = { null, 1, 2, 3, 4, 5, 6, 7, 8, null, 9, null, null, null, 10, 11};
-        TreeNode root = buildBinaryTree(arr);
+        TreeNode root = TreeUtility.buildBinaryTree(arr);
 
         List<List<TreeNode>> result = listOfNodesAtEachDepth(root);
         List<List<TreeNode>> expected = new LinkedList<>();
@@ -138,58 +138,6 @@ public class ListOfDepths4_2 {
         }
         if (result.wasSuccessful()) {
             System.out.println("All tests passed.");
-        }
-    }
-
-
-
-    private TreeNode buildBinaryTree(Integer[] input) {
-        TreeNode root = null;
-        if (input.length > 1) {
-            root = new TreeNode(input[1]);
-            buildBinaryTreeRecurser(root, 1, input);
-        }
-        return root;
-    }
-
-    private void buildBinaryTreeRecurser(TreeNode node, int index, Integer[] input) {
-        int leftIndex = index * 2;
-        int rightIndex = leftIndex + 1;
-        TreeNode left = null;
-        TreeNode right = null;
-        if (node != null) {
-            if (leftIndex < input.length) {
-                if (input[leftIndex] != null) {
-                    left = new TreeNode(input[leftIndex]);
-                    node.left = left;
-                }
-                buildBinaryTreeRecurser(left, leftIndex, input);
-            }
-            if (rightIndex < input.length) {
-                if (input[rightIndex] != null) {
-                    right = new TreeNode(input[rightIndex]);
-                    node.right = right;
-                }
-                buildBinaryTreeRecurser(right, rightIndex, input);
-            }
-        }
-    }
-
-
-    private class TreeNode {
-        int val;
-        TreeNode left;
-        TreeNode right;
-
-        TreeNode(int x) { val = x; }
-
-        @Override
-        public String toString() {
-            return "TreeNode{" +
-                    "val=" + val +
-                    ", left=" + left +
-                    ", right=" + right +
-                    '}';
         }
     }
 }
