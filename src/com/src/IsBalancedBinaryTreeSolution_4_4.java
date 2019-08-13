@@ -8,7 +8,7 @@ import static junit.framework.TestCase.assertTrue;
 import static org.junit.Assert.assertFalse;
 
 @SuppressWarnings("Duplicates")
-public class IsBalancedBinaryTree4_3Solution {
+public class IsBalancedBinaryTreeSolution_4_4 {
 //    public boolean isBalanced(TreeNode root) {
 //        if (root != null) {
 //            if (!isBalancedPostOrderRecurser(root, 0, 0)) return false;
@@ -144,7 +144,7 @@ public class IsBalancedBinaryTree4_3Solution {
      */
 
     public static void main(String[] args) {
-        Result result = JUnitCore.runClasses(IsBalancedBinaryTree4_3Solution.class);
+        Result result = JUnitCore.runClasses(IsBalancedBinaryTreeSolution_4_4.class);
         for (Failure failure : result.getFailures()) {
             System.out.println(failure.toString());
         }

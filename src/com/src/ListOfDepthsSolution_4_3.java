@@ -9,7 +9,7 @@ import java.util.LinkedList;
 import java.util.List;
 
 @SuppressWarnings("Duplicates")
-public class ListOfDepths4_2 {
+public class ListOfDepthsSolution_4_3 {
 
     public List<List<TreeNode>> listOfNodesAtEachDepth(TreeNode root) {
         List<List<TreeNode>> output = new LinkedList<>();
@@ -132,7 +132,7 @@ public class ListOfDepths4_2 {
      */
 
     public static void main(String[] args) {
-        Result result = JUnitCore.runClasses(ListOfDepths4_2.class);
+        Result result = JUnitCore.runClasses(ListOfDepthsSolution_4_3.class);
         for (Failure failure : result.getFailures()) {
             System.out.println(failure.toString());
         }
