@@ -4,7 +4,8 @@ import java.util.LinkedList;
 import java.util.List;
 
 public class BalanceTreeValidation {
-
+    //static  Integer min=Integer.MAX_VALUE;
+    //static Integer max=0;
     public static void main(String[] args) {
         TreeNode t4 = new TreeNode(4);
         TreeNode t5 = new TreeNode(5);
@@ -13,8 +14,8 @@ public class BalanceTreeValidation {
         TreeNode t2 = new TreeNode(2, t4, t5);
         TreeNode t3 = new TreeNode(3, t6, t7);
         TreeNode t1 = new TreeNode(1, t2, t3);
-        System.out.println(createListBFS(t1));
-
+        System.out.println(validateWithBFS(t1));
+        //validateWithDFS(t1,0,0,min,max);
 
         TreeNode t111 = new TreeNode(4);
         TreeNode t101 = new TreeNode(5);
@@ -27,10 +28,10 @@ public class BalanceTreeValidation {
         TreeNode t21 = new TreeNode(2, t41, t51);
         TreeNode t31 = new TreeNode(3, t61, t71);
         TreeNode t11 = new TreeNode(1, t21, t31);
-        System.out.println(createListBFS(t11));
+        System.out.println(validateWithBFS(t11));
     }
 
-    private static boolean createListBFS(TreeNode t1) {
+    private static boolean validateWithBFS(TreeNode t1) {
         List<TreeNode> current = new LinkedList<TreeNode>();
         if (t1 != null) {
             current.add(t1);
@@ -51,6 +52,8 @@ public class BalanceTreeValidation {
                 if (node.left == null || node.left == null) {
                     min = Math.min(min, max);
                 }
+                System.out.println("max=" + max);
+                System.out.println("min=" + min);
                 if (max - min > 1) {
                     return false;
                 }
@@ -59,5 +62,26 @@ public class BalanceTreeValidation {
         return max - min <= 1;
     }
 
+ /*   public static void validateWithDFS(TreeNode t, int leftHeight,int rightHeight,int min,int max){
+       // System.out.println("Parent= "+t.value);
+        if((t.left==null || t.right==null)){
+            if(leftHeight!=0 || rightHeight!=0){
+                min=Math.min(Math.min(leftHeight,min),rightHeight);
+                max=Math.max(Math.max(leftHeight,max),rightHeight);
+            }
+        }
+        if(t.left!= null){
+            //System.out.println("left= "+t.left.value);
+            validateWithDFS(t.left,leftHeight+1,rightHeight,min,max);
+        }
+        if(t.right!= null){
+           // System.out.println("right= "+t.right.value);
+            validateWithDFS(t.right,leftHeight,rightHeight+1,min,max);
+        }
+        System.out.println("min= "+min);
+        System.out.println("max= "+max);
+
+    }
+*/
 
 }
