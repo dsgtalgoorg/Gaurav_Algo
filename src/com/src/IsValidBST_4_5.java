@@ -19,8 +19,8 @@ public class IsValidBST_4_5 {
         if (root == null) return true;
         if (root.val > min && root.val < max)
             return (
-                    isValidBstRecurser(root.left, min, root.val) &&
-                            isValidBstRecurser(root.right, root.val, max)
+                isValidBstRecurser(root.left, min, root.val) &&
+                isValidBstRecurser(root.right, root.val, max)
             );
         else return false;
     }
