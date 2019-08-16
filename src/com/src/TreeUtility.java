@@ -1,3 +1,5 @@
+import java.util.Stack;
+
 public class TreeUtility {
     public static TreeNode buildBinaryTree(Integer[] input) {
         TreeNode root = null;
@@ -33,4 +35,19 @@ public class TreeUtility {
             }
         }
     }
+
+    public static TreeNode getNode(TreeNode root, int val) {
+        Stack<TreeNode> stack = new Stack();
+        stack.push(root);
+        while (!stack.isEmpty()) {
+            TreeNode node = stack.pop();
+            if (node.val == val) return node;
+            else {
+                if (node.left != null) stack.push(node.left);
+                if (node.right != null) stack.push(node.right);
+            }
+        }
+        return null;
+    }
+
 }
