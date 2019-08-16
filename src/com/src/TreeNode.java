@@ -1,7 +1,6 @@
 public class TreeNode {
     int val;
-    TreeNode left;
-    TreeNode right;
+    TreeNode  left, right, parent;
 
     TreeNode(int x) { val = x; }
 

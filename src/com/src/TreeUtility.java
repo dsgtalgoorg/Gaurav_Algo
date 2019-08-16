@@ -3,6 +3,7 @@ public class TreeUtility {
         TreeNode root = null;
         if (input.length > 1) {
             root = new TreeNode(input[1]);
+            root.parent = null;
             buildBinaryTreeRecurser(root, 1, input);
         }
         return root;
@@ -17,6 +18,7 @@ public class TreeUtility {
             if (leftIndex < input.length) {
                 if (input[leftIndex] != null) {
                     left = new TreeNode(input[leftIndex]);
+                    left.parent = node;
                     node.left = left;
                 }
                 buildBinaryTreeRecurser(left, leftIndex, input);
@@ -24,6 +26,7 @@ public class TreeUtility {
             if (rightIndex < input.length) {
                 if (input[rightIndex] != null) {
                     right = new TreeNode(input[rightIndex]);
+                    right.parent = node;
                     node.right = right;
                 }
                 buildBinaryTreeRecurser(right, rightIndex, input);
