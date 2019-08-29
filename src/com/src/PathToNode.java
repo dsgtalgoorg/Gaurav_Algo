@@ -1,5 +1,3 @@
-import org.junit.Assert;
-import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.JUnitCore;
 import org.junit.runner.Result;
@@ -8,8 +6,7 @@ import org.junit.runner.notification.Failure;
 import java.util.ArrayList;
 import java.util.List;
 
-import static junit.framework.Assert.assertNull;
-import static junit.framework.TestCase.assertEquals;
+import static org.junit.Assert.*;
 
 @SuppressWarnings("Duplicates")
 public class PathToNode {
@@ -40,7 +37,7 @@ public class PathToNode {
             found = pathToNodeRecurser(node.right, tgtVal, list, found);
         }
         if (!found) {
-            list.remove(list.size() -1);
+            list.remove(list.size() - 1);
         }
         return found;
     }
@@ -63,7 +60,7 @@ public class PathToNode {
         TreeNode root = TreeUtility.buildBinaryTree(arr);
 
         int[] expected = {1};
-        Assert.assertArrayEquals(expected, pathToNode(root, 1).stream().mapToInt(Integer::intValue).toArray());
+        assertArrayEquals(expected, pathToNode(root, 1).stream().mapToInt(Integer::intValue).toArray());
 
     }
 
@@ -85,7 +82,7 @@ public class PathToNode {
         TreeNode root = TreeUtility.buildBinaryTree(arr);
 
         int[] expected = {10, 2, 0};
-        Assert.assertArrayEquals(expected, pathToNode(root, 0).stream().mapToInt(Integer::intValue).toArray());
+        assertArrayEquals(expected, pathToNode(root, 0).stream().mapToInt(Integer::intValue).toArray());
     }
 
     @Test
@@ -105,7 +102,7 @@ public class PathToNode {
         TreeNode root = TreeUtility.buildBinaryTree(arr);
 
         int[] expected = {10, 2, 8, 4};
-        Assert.assertArrayEquals(expected, pathToNode(root, 4).stream().mapToInt(Integer::intValue).toArray());
+        assertArrayEquals(expected, pathToNode(root, 4).stream().mapToInt(Integer::intValue).toArray());
     }
 
     @Test
@@ -126,7 +123,7 @@ public class PathToNode {
         TreeNode root = TreeUtility.buildBinaryTree(arr);
 
         int[] expected = {10, 51, 40, 7};
-        Assert.assertArrayEquals(expected, pathToNode(root, 7).stream().mapToInt(Integer::intValue).toArray());
+        assertArrayEquals(expected, pathToNode(root, 7).stream().mapToInt(Integer::intValue).toArray());
     }
 
     @Test
@@ -147,7 +144,7 @@ public class PathToNode {
         TreeNode root = TreeUtility.buildBinaryTree(arr);
 
         int[] expected = {10, 51, 40, 3};
-        Assert.assertArrayEquals(expected, pathToNode(root, 3).stream().mapToInt(Integer::intValue).toArray());
+        assertArrayEquals(expected, pathToNode(root, 3).stream().mapToInt(Integer::intValue).toArray());
     }
 
     @Test
@@ -168,7 +165,7 @@ public class PathToNode {
         TreeNode root = TreeUtility.buildBinaryTree(arr);
 
         int[] expected = {10, 51, 5};
-        Assert.assertArrayEquals(expected, pathToNode(root, 5).stream().mapToInt(Integer::intValue).toArray());
+        assertArrayEquals(expected, pathToNode(root, 5).stream().mapToInt(Integer::intValue).toArray());
     }
 
     @Test
@@ -189,7 +186,7 @@ public class PathToNode {
         TreeNode root = TreeUtility.buildBinaryTree(arr);
 
         int[] expected = {10, 51, 40};
-        Assert.assertArrayEquals(expected, pathToNode(root, 40).stream().mapToInt(Integer::intValue).toArray());
+        assertArrayEquals(expected, pathToNode(root, 40).stream().mapToInt(Integer::intValue).toArray());
     }
 
     /*
