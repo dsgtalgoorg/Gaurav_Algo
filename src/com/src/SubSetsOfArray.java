@@ -1,5 +1,8 @@
+import java.lang.reflect.Array;
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 public class SubSetsOfArray {
     public static void main(String[] args) {
@@ -9,6 +12,9 @@ public class SubSetsOfArray {
         System.out.println(subsets.size());
         printList(subsets);
 
+        System.out.println(">>>>>>>>>>>> ");
+        System.out.println(findSubsets("abcd"));
+
       /*  System.out.println("Second============================");
 
         List<List<Integer>> subsets2= new ArrayList<>();
@@ -16,7 +22,9 @@ public class SubSetsOfArray {
         findSubset(arr1,0,subsets2);
         System.out.println(subsets2.size());
         printList(subsets2);*/
+
     }
+
 
     private static void printList(List<List<Integer>> subsets) {
         if (subsets != null) {
@@ -56,5 +64,27 @@ public class SubSetsOfArray {
         subsets.add(list);
     }
 
+    private static List<List<String>> findSubsets(String str) {
+        List<List<String>> list = new ArrayList<>();
+        recurser(str, list);
+        return list;
+    }
+
+    private static void recurser(String subString, List<List<String>> list) {
+        if (subString.length() == 0) return;
+        else {
+            String currLetter = String.valueOf(subString.charAt(0));
+            int size = list.size();
+            for (int i = 0; i < size; i++) {
+                List<String> currSet = new ArrayList<>(list.get(i));
+                currSet.add(currLetter);
+                list.add(currSet);
+            }
+            List<String> single = new ArrayList<>();
+            single.add(currLetter);
+            list.add(single);
+            recurser(subString.substring(1), list);
+        }
+    }
 
 }
