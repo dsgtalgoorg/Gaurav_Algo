@@ -38,7 +38,4 @@ public class PaintFill {
                 .flatMap(Stream::of)
                 .forEach(System.out::println);
     }
-
-
-
 }
