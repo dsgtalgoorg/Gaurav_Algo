@@ -2,28 +2,32 @@ import java.util.*;
 
 public class PermutationWithoutDuplicate {
     public static void main(String[] args) {
-        System.out.println(allPerms("aa"));
-        /*Set<String>  finalSet= new HashSet<>();
+        // System.out.println(allPerms("aacd"));
+        Set<String> finalSet = new HashSet<>();
         getSubSet(finalSet,"123");
-        if(finalSet != null) finalSet.forEach(e-> System.out.println(e));*/
+        if (finalSet != null) finalSet.forEach(e -> System.out.println(e));
+
+        System.out.println("===============");
+
+        finalSet = new HashSet<>();
+        getSubSet(finalSet, "122");
+        if (finalSet != null) finalSet.forEach(e -> System.out.println(e));
     }
 
-    /*
     private static void getSubSet(Set<String> finalSet,String str) {
         if(str== null) return;
         int mainIndex=0;
-             while (mainIndex<str.length()) {
-                 System.out.println("getSubSet");
-                String currentString=str.substring(0,mainIndex)+str.substring(mainIndex+1,str.length());
+        while (mainIndex < str.length()) {
+            String currentString = str.substring(0, mainIndex) + str.substring(mainIndex + 1);
                 Set<String>  combinations= new HashSet<>();
                 combinations.add(String.valueOf(str.charAt(mainIndex)));
+            currentString = str.substring(0, mainIndex) + str.substring(mainIndex + 1);
                 getCombination(finalSet, combinations, currentString, currentString,0);
                  mainIndex++;
             }
     }
 
     private static void getCombination(Set<String> finalSet, Set<String> combination, String str,String currentString,int index) {
-        System.out.println(index);
         if (currentString.length() == 1) {
             for (String set : combination) {
                 finalSet.add(set + currentString);
@@ -31,16 +35,15 @@ public class PermutationWithoutDuplicate {
             return;
         }
         else {
-            Set<String> localComb = new HashSet<>();
             Iterator it = combination.iterator();
             while (it.hasNext()) {
+                String currComb = (String) it.next();
+                it.remove();
             while (index < str.length()) {
-                    System.out.println(index+ "   getCombination   "+str.length());
+                Set<String> localComb = new HashSet<>();
                     String s = String.valueOf(str.charAt(index));
-                    //System.out.println("getCombination1");
-                    localComb.add(it.next() + s);
-                    it.remove();
-                    currentString = str.substring(0, index ) + str.substring(index+1, str.length());
+                localComb.add(currComb + s);
+                currentString = str.substring(0, index) + str.substring(index + 1);
                     getCombination(finalSet, localComb, str, currentString,index++);
                 }
             }
@@ -50,19 +53,9 @@ public class PermutationWithoutDuplicate {
             //if(combination != null) combination.forEach(e-> System.out.println(e));
 
     }
-*/
 
 
-
-
-
-
-
-
-
-
-
-
+// Dan Code
 
     public static List<List<String>> allPerms(String str) {
         List<List<String>> list = new ArrayList<>();
